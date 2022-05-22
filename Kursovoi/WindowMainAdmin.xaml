@@ -1,0 +1,45 @@
+﻿<Window x:Class="Kursovoi.WindowMainAdmin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        
+        xmlns:local="clr-namespace:Kursovoi"
+        mc:Ignorable="d"
+        Title="Prelib" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight" WindowState="Maximized" Background="#FF060606" Width="1164" Height="700" WindowStyle="SingleBorderWindow" ResizeMode="NoResize">
+
+    <Grid Width="1164" Margin="0,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <Grid Height="51" Background="#FFBD6CB6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="740"/>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="130"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Content="PRELIB" FontFamily="Segoe UI" Style="{StaticResource buttonStyle}" FontWeight="Bold" Click="Button_Click" />
+               <!-- <Frame Height="50" Grid.Column="1" x:Name="Search" Source="Search.xaml"></Frame>-->
+                <Button Grid.Column="2" Style="{StaticResource buttonStyle}" Click="UserPage_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="&#59259;" Style="{StaticResource buttonIcon}" />
+                        <TextBlock Text="Кабинет" Style="{StaticResource TextBlockStyle}" FontWeight="Bold"/>
+                    </StackPanel>
+                </Button>
+                <Button Grid.Column="3" RenderTransformOrigin="0.547,0.547" Style="{StaticResource buttonStyle}" HorizontalAlignment="Left" Width="130" Click="Exit_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="&#59540;" Style="{StaticResource buttonIcon}"/>
+                        <TextBlock Text="Выход" Style="{StaticResource TextBlockStyle}" FontWeight="Bold"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+        </StackPanel>
+
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Content="Frame" Grid.Row="1" Margin="0,32,0,30" Source="CatalogAdmin.xaml">
+        </Frame>
+
+    </Grid>
+</Window>

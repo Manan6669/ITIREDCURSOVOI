@@ -1,0 +1,29 @@
+﻿<Page x:Class="Kursovoi.ReadPdf"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:syncfusion="clr-namespace:Syncfusion.Windows.PdfViewer;assembly=Syncfusion.PdfViewer.Wpf"
+        xmlns:local="clr-namespace:Kursovoi"
+        mc:Ignorable="d"
+        Title="Prelib"   Background="#FF060606" Width="1164" Height="750">
+    <Grid Height="700"  VerticalAlignment="Bottom">
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+
+            <WrapPanel x:Name="HomeGrid">
+                <!--  <syncfusion:PdfViewerControl x:Name="pdfViewer" ItemSource="{Binding DocumentStream}"></syncfusion:PdfViewerControl>-->
+                <WebBrowser x:Name="ReadPdfTitle"  VerticalAlignment="Center" Height="700" Width="1164" ></WebBrowser>
+            </WrapPanel>
+
+            <!--<Button Content="Button" HorizontalAlignment="Left" Height="50" Margin="20,20,0,0" 
+                VerticalAlignment="Top" Width="21" Click="ButtonIMGPDF_Click"/>
+                <Image  Margin="57,21,58,30" x:Name="img"/>-->
+
+        </StackPanel>
+        <Button Content="&#xE830;" Click="BackButtom" HorizontalAlignment="Left" Margin="1,-34,0,0" VerticalAlignment="Top" Width="30" Style="{DynamicResource Filtr}" FontFamily="Segoe MDL2 Assets"/>
+    </Grid>
+</Page>

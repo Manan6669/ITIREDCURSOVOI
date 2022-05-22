@@ -1,0 +1,24 @@
+﻿<Page x:Class="Kursovoi.UserPageAdmin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Kursovoi"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1164"
+      Title="Prelib">
+
+    <Grid RenderTransformOrigin="0.705,0.638">
+
+
+        <Image  Source="D:\ЛЕНННННА\4 семестр\КУРСОВОЙ ООП\BD\Kursovoi\Kursovoi\bin\Debug\net5.0-windows\PHOTOTITLE\админ.jpg" Margin="204,65,204,145"/>
+
+
+        <TextBlock  HorizontalAlignment="Center" Margin="0,461,0,0" Text="Admin" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Height="42" Style="{DynamicResource TextBlockStyleTitles}" FontSize="36"/>
+
+
+
+
+
+    </Grid>
+</Page>

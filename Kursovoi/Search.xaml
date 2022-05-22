@@ -1,0 +1,18 @@
+﻿<Page x:Class="Kursovoi.Search"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Kursovoi"
+      mc:Ignorable="d" 
+      d:DesignHeight="50" d:DesignWidth="390"
+      Title="Search">
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <TextBox x:Name="nameFiltr" Height="50" Style="{StaticResource SearchTextBox}" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderBrush="White" Width="350" HorizontalAlignment="Left"/>
+            <Button Height="50" Width="40" Background="#FF060606" BorderBrush="#FFBD6CB6" Click="SearchCom" >
+                <TextBlock Margin="2 0 0 0" Text="&#xE71E;" Style="{DynamicResource buttonIcon}"></TextBlock>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>

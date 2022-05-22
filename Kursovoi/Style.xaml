@@ -1,0 +1,144 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style TargetType="Button" x:Key="buttonStyle">
+        <Setter Property="FontSize" Value="18"></Setter>
+        <Setter Property="VerticalAlignment" Value="Stretch"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+        <Setter Property="Background" Value="#FFBD6CB6"></Setter>
+        <Setter Property="Foreground" Value="white"></Setter>
+        <Setter Property="BorderBrush" Value="#FFBD6CB6"></Setter>
+        <Setter Property="BorderThickness" Value="0 0  1 0"></Setter>
+     
+    </Style>
+    <Style TargetType="TextBox" x:Key="SearchTextBox">
+        <Setter Property="FontSize" Value="16"></Setter>
+        <Setter Property="VerticalAlignment" Value="Stretch"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+        <Setter Property="Background" Value="White"></Setter>
+        <Setter Property="Foreground" Value="Black"></Setter>
+        <Setter Property="BorderBrush" Value="{x:Null}"></Setter>
+        <Setter Property="BorderThickness" Value="0 0  1 0"></Setter>
+    </Style>
+    <Style TargetType="TextBlock" x:Key="TextBlockStyle">
+        <Setter Property="FontSize" Value="16"></Setter>
+        <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+        <Setter Property="VerticalAlignment" Value="Stretch"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+        <Setter Property="Background" Value="{x:Null}"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+    </Style>
+    <Style TargetType="TextBlock" x:Key="TextBlockStyleTitles">
+        <Setter Property="FontSize" Value="30"></Setter>
+        <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+        <Setter Property="VerticalAlignment" Value="Stretch"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+        <Setter Property="Background" Value="{x:Null}"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+    </Style>
+    <Style TargetType="TextBlock" x:Key="TextBlockImageStyle">
+        <Setter Property="FontSize" Value="14"></Setter>
+        <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+        <Setter Property="VerticalAlignment" Value="Stretch"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+        <Setter Property="Background" Value="{x:Null}"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+    </Style>
+    <Style TargetType="TextBlock" x:Key="buttonIcon">
+        <Setter Property="FontFamily" Value="Segoe MDL2 Assets"></Setter>
+        <Setter Property="FontSize" Value="16"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="Margin" Value="0 3 5 0"></Setter>
+
+    </Style>
+    <Style TargetType="Label" x:Key="LabelStyle">
+        <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+        <Setter Property="FontSize" Value="14"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+    </Style>
+    <Style TargetType="Button" x:Key="buttonStyle2">
+        <Setter Property="FontSize" Value="14"></Setter>
+        <Setter Property="VerticalAlignment" Value="Stretch"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+        <Setter Property="Background" Value="#FFBD6CB6"></Setter>
+        <Setter Property="Foreground" Value="white"></Setter>
+        <Setter Property="BorderBrush" Value="#FFBD6CB6"></Setter>
+        <Setter Property="BorderThickness" Value="0 0  1 0"></Setter>
+       
+    </Style>
+    <Style TargetType="TextBox" x:Key="LogInText">
+        <Setter Property="FontSize" Value="14"></Setter>
+        <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+        <Setter Property="Background" Value="{x:Null}"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="BorderBrush" Value="{x:Null}"></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver"  Value="True">
+                <Setter Property="BorderThickness" Value="0"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style TargetType="Button" x:Key="TriggerBut">
+        <Setter Property="Background" Value="{x:Null}"></Setter>
+        <Setter Property="BorderBrush" Value="{x:Null}"></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderThickness" Value="0"></Setter>
+                <Setter Property="Background" Value="{x:Null}"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style TargetType="ListView" x:Key="List">
+        <Setter Property="Background" Value="#FF252525"></Setter>
+        <Setter Property="BorderBrush" Value="{x:Null}"></Setter>
+        <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+        <Setter Property="FontSize" Value="7"></Setter>
+    </Style>
+    <Style TargetType="{x:Type Button}" x:Key="Mouse" BasedOn="{StaticResource buttonStyle}">
+        <Setter Property="Background" Value="{x:Null}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}">
+                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+            <Setter Property="Background" Value="{x:Null}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style TargetType="TextBlock" x:Key="TextBlockImageStyle2">
+        <Setter Property="FontSize" Value="15"></Setter>
+        <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+        <Setter Property="VerticalAlignment" Value="Stretch"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+        <Setter Property="Background" Value="{x:Null}"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+    </Style>
+    <Style TargetType="TextBlock" x:Key="TextBlockImageStyle3">
+        <Setter Property="FontSize" Value="13"></Setter>
+        <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+        <Setter Property="VerticalAlignment" Value="Stretch"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+        <Setter Property="Background" Value="{x:Null}"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+    </Style>
+    <Style TargetType="Button" x:Key="Filtr">
+        <Setter Property="FontSize" Value="12"></Setter>
+        <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+        <Setter Property="Background" Value="{x:Null}"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="BorderBrush" Value="{x:Null}"></Setter>
+    </Style>
+    <Style TargetType="RadioButton" x:Key="radio">
+        <Setter Property="Background" Value="{x:Null}"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="BorderBrush" Value="Black"></Setter>
+    </Style>
+</ResourceDictionary>
