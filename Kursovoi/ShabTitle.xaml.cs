@@ -253,8 +253,8 @@ namespace Kursovoi
 
         private void DelFromBd_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
+            //try
+          //  {
                 var code = Application.Current.Resources["TT"];
                 string shortcode = code.ToString();
                 shortcode = shortcode.Remove(0, 5);
@@ -263,18 +263,28 @@ namespace Kursovoi
                     var delTit = db.Title.FirstOrDefault(s => s.CodeTitle == int.Parse(shortcode));
                   //  db.Entry(delTit).Collection(c => c.CodeDescription).Load();
                     var desc = delTit.CodeDescription;
+                    var path = delTit.CodePhChepter;
+                var au = delTit.CodeAuthor;
+                var trans = delTit.CodeTranslator;
+                    var p = db.Photochepter.FirstOrDefault(p => p.CodePhChepter == path);
                     var descTit = db.Description.FirstOrDefault(d => d.CodeDescription == desc);
-                    //  db.Description.Remove(descTit);
+                   var tr = db.Translator.FirstOrDefault(t => t.CodeTranslator == trans);
+                var a = db.Author.FirstOrDefault(a => a.CodeAuthor == au);
+                db.Author.Remove(a);
+                   db.Translator.Remove(tr);
+                   db.Description.Remove(descTit);
+                    db.Photochepter.Remove(p);
                     db.Title.Remove(delTit);
                     db.SaveChanges();
+                this.NavigationService.Navigate(new Uri("CatalogAdmin.xaml", UriKind.Relative));
+            }
 
-                }
-                MessageBox.Show("Удаление комикса прошло успешно");
-            }
-            catch
-            {
-                MessageBox.Show("Не удалось удалить комикс");
-            }
+              //  MessageBox.Show("Удаление комикса прошло успешно");
+            //}
+            //catch
+          //  {
+               // MessageBox.Show("Не удалось удалить комикс");
+           // }
         }
     }
 }

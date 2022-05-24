@@ -216,7 +216,7 @@ namespace Kursovoi
         {
             using (CURSOVOIContext db = new CURSOVOIContext())
             {
-                
+                int k = 0;
                 try {
                 
                 int IdTit = db.Title.Max(m => m.CodeTitle);
@@ -248,61 +248,78 @@ namespace Kursovoi
 
                 file = PathImT.Text;
 
-
-
-
-                Title newtitle = new Title
-                {
-                    CodeTitle = IdTit + 1,
-                    NameOfTitle = NameTit,
-                    ReleaseDate = (DateTime)DateTit,
-                    Publisher = PublicTit,
-                    Genre = GenreTit,
-                    Photo = System.IO.Path.GetFileName(_filepath),
-
-                    CodeAuthor = CodeAuth + 1,
-                    CodeTranslator = CodeTrans + 1,
-                    CodeDescription = CodeDes + 1,
-
-                    CodeCodeTypeOfComics = priority,
-
-                    CodeTranslation = prioritystat,
-                    Link = LinkTit
-
-                };
-                    Author newauthor = new Author
+                var nn = db.Title.Where(n => n.NameOfTitle == NameTit).ToList();
+                    if (nn != null)
                     {
-                        CodeAuthor = CodeAuth + 1,
-                        Author1 = AuthTit
+                        foreach(var item  in nn)
+                        {
+                            if (item.NameOfTitle == NameTit)
+                            {
+                                k++;
+                            }
+                        }
+                        if (k == 0)
+                        {
 
-                    };
-                    Translator newtranslator = new Translator
-                    {
-                        
-                        CodeTranslator = CodeTrans + 1,
-                        Translator1 = TranT.Text
-                    };
-                    Description newdescription = new Description
-                    {
-                        CodeDescription = CodeDes + 1,
-                        Description1 = DescrTit
-                    };
-                    Photochepter phchep = new Photochepter
-                    {
-                    CodePhChepter = CodeChep + 1,
-                    CodeTitle = IdTit + 1,
-                    PathPhChepter = LinkChepTit
-                    };
 
-                    db.Title.Add(newtitle);
-                    db.Author.Add(newauthor);
-                    db.Translator.Add(newtranslator);
-                    db.Description.Add(newdescription);
-                    db.Photochepter.Add(phchep);
-                    db.SaveChanges();
-                   
 
-                    }
+                            Title newtitle = new Title
+                            {
+                                CodeTitle = IdTit + 1,
+                                NameOfTitle = NameTit,
+                                ReleaseDate = (DateTime)DateTit,
+                                Publisher = PublicTit,
+                                Genre = GenreTit,
+                                Photo = System.IO.Path.GetFileName(_filepath),
+
+                                CodeAuthor = CodeAuth + 1,
+                                CodeTranslator = CodeTrans + 1,
+                                CodeDescription = CodeDes + 1,
+
+                                CodeCodeTypeOfComics = priority,
+
+                                CodeTranslation = prioritystat,
+                                Link = LinkTit,
+                                CodePhChepter = CodeChep + 1
+
+                            };
+                            Author newauthor = new Author
+                            {
+                                CodeAuthor = CodeAuth + 1,
+                                Author1 = AuthTit
+
+                            };
+                            Translator newtranslator = new Translator
+                            {
+
+                                CodeTranslator = CodeTrans + 1,
+                                Translator1 = TranT.Text
+                            };
+                            Description newdescription = new Description
+                            {
+                                CodeDescription = CodeDes + 1,
+                                Description1 = DescrTit
+                            };
+                            Photochepter phchep = new Photochepter
+                            {
+                                CodePhChepter = CodeChep + 1,
+                                CodeTitle = IdTit + 1,
+                                PathPhChepter = LinkChepTit
+                            };
+
+                            db.Title.Add(newtitle);
+                            db.Author.Add(newauthor);
+                            db.Translator.Add(newtranslator);
+                            db.Description.Add(newdescription);
+                            db.Photochepter.Add(phchep);
+                            db.SaveChanges();
+                            MessageBox.Show("Комикс успешно добавлен");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Тако тайтл у е");
+                        }
+                    } }
                     catch
                     {
                         MessageBox.Show("Не удалось добавить тайтл!");
@@ -338,9 +355,11 @@ namespace Kursovoi
             GenT.Text = "";
             TranT.Text = "";
             LinkSite.Text = "";
+            LinkChep.Text = "";
 
             DesT.Text = "";
             _filepath = "";
+
         }
     }
 }

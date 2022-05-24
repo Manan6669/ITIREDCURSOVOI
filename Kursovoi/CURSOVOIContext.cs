@@ -154,7 +154,7 @@ namespace Kursovoi
                 entity.HasOne(d => d.CodeAuthorNavigation)
                     .WithMany(p => p.Title)
                     .HasForeignKey(d => d.CodeAuthor)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_TITLE_AUTHOR");
 
                 entity.HasOne(d => d.CodeCodeTypeOfComicsNavigation)

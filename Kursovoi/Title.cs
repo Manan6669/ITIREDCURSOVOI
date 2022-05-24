@@ -26,7 +26,7 @@ namespace Kursovoi
         public int CodeDescription { get; set; }
         public string Photo { get; set; }
         public string Link { get; set; }
-        public int? CodePhChepter { get; set; }
+        public int CodePhChepter { get; set; }
 
         public virtual Author CodeAuthorNavigation { get; set; }
         public virtual TypeOfComics CodeCodeTypeOfComicsNavigation { get; set; }

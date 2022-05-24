@@ -3,7 +3,6 @@ D:\ЛЕНННННА\4 семестр\Kursovoi\Kursovoi\bin\Debug\net5.0-windows\
 D:\ЛЕНННННА\4 семестр\Kursovoi\Kursovoi\bin\Debug\net5.0-windows\Kursovoi.runtimeconfig.json
 D:\ЛЕНННННА\4 семестр\Kursovoi\Kursovoi\bin\Debug\net5.0-windows\Kursovoi.runtimeconfig.dev.json
 D:\ЛЕНННННА\4 семестр\Kursovoi\Kursovoi\bin\Debug\net5.0-windows\Kursovoi.dll
-D:\ЛЕНННННА\4 семестр\Kursovoi\Kursovoi\bin\Debug\net5.0-windows\ref\Kursovoi.dll
 D:\ЛЕНННННА\4 семестр\Kursovoi\Kursovoi\bin\Debug\net5.0-windows\Kursovoi.pdb
 D:\ЛЕНННННА\4 семестр\Kursovoi\Kursovoi\bin\Debug\net5.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
 D:\ЛЕНННННА\4 семестр\Kursovoi\Kursovoi\bin\Debug\net5.0-windows\Microsoft.Bcl.HashCode.dll
@@ -84,3 +83,4 @@ D:\ЛЕНННННА\4 семестр\Kursovoi\Kursovoi\obj\Debug\net5.0-windows\
 D:\ЛЕНННННА\4 семестр\Kursovoi\Kursovoi\obj\Debug\net5.0-windows\ref\Kursovoi.dll
 D:\ЛЕНННННА\4 семестр\Kursovoi\Kursovoi\obj\Debug\net5.0-windows\Kursovoi.pdb
 D:\ЛЕНННННА\4 семестр\Kursovoi\Kursovoi\obj\Debug\net5.0-windows\Kursovoi.genruntimeconfig.cache
+D:\ЛЕНННННА\4 семестр\Kursovoi\Kursovoi\obj\Debug\net5.0-windows\refint\Kursovoi.dll

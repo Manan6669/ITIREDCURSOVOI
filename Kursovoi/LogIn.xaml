@@ -18,7 +18,7 @@
         <Button Content="Регистрация" HorizontalAlignment="Left" Margin="80,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="230" Height="30" Style="{DynamicResource buttonStyle2}" Click="EnterToProgrammWithRegistr"/>
         <StackPanel  Width="231" Height="47"  Margin="80,57,89,6" Grid.Row="0" Orientation="Horizontal" Background="#FF1B1B1B">
             <TextBlock Text="Логин :" Width="46"  HorizontalAlignment="Left" Margin="10,13,0,15" Style="{DynamicResource TextBlockImageStyle}"/>
-            <TextBox x:Name="User" Width="143" Height="20" Margin="20 0 0 0 " Style="{DynamicResource LogInText}" Validation.Error="TextBox_Error">
+            <TextBox x:Name="User" Width="143" Height="20" Margin="20 0 0 0 " Style="{DynamicResource LogInText}" Validation.Error="TextBox_Error" BorderThickness="0,0,0,0">
                 <TextBox.Text>
                     <Binding Path="UsersLoqin" NotifyOnValidationError="True">
                         <Binding.ValidationRules>
@@ -30,7 +30,7 @@
         </StackPanel>
         <StackPanel  Height="47" Margin="80,7,90,6" Width="230" Grid.Row="1" Orientation="Horizontal" Background="#FF1B1B1B">
             <TextBlock Text="Пароль :" Width="60"  HorizontalAlignment="Left" Margin="10,13,0,15" Style="{DynamicResource TextBlockImageStyle}"/>
-            <PasswordBox x:Name="Password" Width="143" Height="20" Margin="5 0 0 0 " BorderBrush="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="White" Foreground="White" Background="#FF1B1B1B" />
+            <PasswordBox x:Name="Password" Width="143" Height="20" Margin="5 0 0 0 " BorderBrush="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="White" Foreground="White" Background="#FF1B1B1B" BorderThickness="0,0,0,0" />
         </StackPanel>
     </Grid>
 </Window>
