@@ -199,8 +199,6 @@ namespace Kursovoi
             string shortcodeBook = buttonNameBookmarkDel.ToString();
             shortcodeBook = shortcodeBook.Remove(0, 6);
 
-            //if (e.Button == MouseButtons.Right)
-            {
                 using (CURSOVOIContext db = new CURSOVOIContext())
                 {
                    try
@@ -219,7 +217,6 @@ namespace Kursovoi
                         var sourcBook = db.Bookmarks.Where(b => b.UnicCodeUsers == Cod).ToList();
                         k = sourcBook.Count;
                         Button[] btns = new Button[k];
-                        // var imgtitcode = sourcTitle.Photo;
                         foreach (Bookmarks book in sourcBook)
                         {
                             var titcode = book.CodeTitle;
@@ -229,7 +226,6 @@ namespace Kursovoi
                             var picst = sourcTitle.Photo;
 
                             string imgtitcodepath = Environment.CurrentDirectory + "/PHOTOTITLE/" + $"{picst}";
-                            // var bok = db.Bookmarks.ToList();
                             var stakk = new StackPanel
                             {
                                 Name = "Stack" + st,
@@ -253,8 +249,7 @@ namespace Kursovoi
                             var btnbook = new Button
                             {
                                 Background = new ImageBrush { ImageSource = new BitmapImage(new Uri(imgtitcodepath)) },
-                                Name = "Title" + st //== st
-                                ,
+                                Name = "Title" + st,
                                 VerticalAlignment = VerticalAlignment.Bottom,
                                 Height = 164,
                                 Width = 120,
@@ -269,29 +264,12 @@ namespace Kursovoi
                             BookmarkCatalog.Children.Add(stakk);
 
                         }
-
-                        // string path = Environment.CurrentDirectory + " / PHOTOTITLE/" + $"{sourc.PhotoUsers}";
-                        if (sourc.PhotoUsers == null)
-                        {
-                            UserImg.Source = new BitmapImage(new Uri("D:/ЛЕНННННА/4 семестр/КУРСОВОЙ ООП/BD/Kursovoi/Kursovoi/bin/Debug/net5.0-windows/PHOTOTITLE/All.jpg"));
-                        }
-                        else
-                        {
-
-                            Binding binding = new Binding();
-                            binding.Source = sourc.PhotoUsers;
-                            UserImg.SetBinding(Image.SourceProperty, binding);
-                            //UserImg.Source = new BitmapImage(new Uri(path));
-                        }
-
-                        //AddToCat();
-                    }
+                   }
                     catch (Exception ex)
                    {
                        MessageBox.Show("Закладку не удалось удалить!");
                    }
-                }
-            }
+                }     
         }
 
 
@@ -306,9 +284,6 @@ namespace Kursovoi
 
         private string _filepathUser;
         string filedb;
-
-        public object MouseButtons { get; private set; }
-
         private void AddPhotoUser_Click(object sender, RoutedEventArgs e)
         {
             var LoqUs = Application.Current.Resources["EntUser"];
@@ -347,7 +322,6 @@ namespace Kursovoi
                             filedb = Environment.CurrentDirectory + "/PHOTOTITLE/" + $"{file}";
                             UserImg.Source = new BitmapImage(new Uri(_filepathUser));
 
-                            //db.Users.Remove(titred);
                             ugn.PhotoUsers = UserImg.Source.ToString();
                             db.SaveChanges();
 

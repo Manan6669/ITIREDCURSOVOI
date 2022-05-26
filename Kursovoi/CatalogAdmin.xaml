@@ -117,10 +117,22 @@
                     <TextBlock x:Name="PathImT" HorizontalAlignment="Left" Margin="188,0,0,126" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Grid.Row="1"/>
 
                     <TextBlock HorizontalAlignment="Left" Margin="74,0,0,131" TextWrapping="Wrap" Text="Ссылка на комикс в сети" VerticalAlignment="Bottom" Style="{DynamicResource TextBlockImageStyle3}" Grid.Row="1"/>
-                    <TextBox x:Name="LinkSite"  HorizontalAlignment="Center" Margin="0,1121,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="208" Height="18" Grid.Row="1"/>
+                    <TextBox x:Name="LinkSite" TextChanged="Reg" HorizontalAlignment="Center" Margin="0,1121,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="208" Height="18" Grid.Row="1">
+                        <TextBox.ToolTip>
+                            <ToolTip Background="White" Foreground="Red" HasDropShadow="False" Placement="Left" HorizontalOffset="15" VerticalOffset="10">
+                                <TextBlock>Введите сюда поле вида https://...</TextBlock>
+                            </ToolTip>
+                        </TextBox.ToolTip>
+                    </TextBox>
 
                     <TextBlock HorizontalAlignment="Left" Margin="74,0,0,91" TextWrapping="Wrap" Text="Ссылка на главы комикса" VerticalAlignment="Bottom" Style="{DynamicResource TextBlockImageStyle3}" Grid.Row="1"/>
-                    <TextBox x:Name="LinkChep"  HorizontalAlignment="Center" Margin="0,1161,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="18" Width="208" Grid.Row="1"/>
+                    <TextBox x:Name="LinkChep" TextChanged="RegChep" HorizontalAlignment="Center" Margin="0,1161,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="18" Width="208" Grid.Row="1">
+                        <TextBox.ToolTip>
+                            <ToolTip Background="White" Foreground="Red" HasDropShadow="False" Placement="Left" HorizontalOffset="15" VerticalOffset="10">
+                                <TextBlock>Введите сюда поле вида https://...</TextBlock>
+                            </ToolTip>
+                        </TextBox.ToolTip>
+                    </TextBox>
 
 
                     <Button x:Name="AddTit" Content="Добавить" Style="{StaticResource buttonStyle2}" Click="AddTitle" Background="#FF252525" Margin="74,0,182,32" Grid.Row="1" Height="30" VerticalAlignment="Bottom"/>

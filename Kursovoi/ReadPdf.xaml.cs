@@ -36,22 +36,29 @@ namespace Kursovoi
             InitializeComponent();
             using (CURSOVOIContext db = new CURSOVOIContext())
             {
-                var code = Application.Current.Resources["TT"];
-                string shortcode = code.ToString();
-                shortcode = shortcode.Remove(0, 5);
-                
-                
-                var sourc = db.Photochepter.Where(p => p.CodeTitle == int.Parse(shortcode)).ToList();
-                var k = sourc.Count;
-               // FlowDocumentPageViewer[] pg = new FlowDocumentPageViewer[k];
-                foreach(Photochepter phch in sourc)
+                try
                 {
-                   // System.Text.Encoding.Default;
-                    var pth = phch.PathPhChepter;
-                    ReadPdfTitle.Navigated += (sender, args) => { HideScriptErrors((WebBrowser)sender, true); };
+                    var code = Application.Current.Resources["TT"];
+                    string shortcode = code.ToString();
+                    shortcode = shortcode.Remove(0, 5);
 
-                    ReadPdfTitle.Navigate($"{pth}");
-                 
+
+                    var sourc = db.Photochepter.Where(p => p.CodeTitle == int.Parse(shortcode)).ToList();
+                    var k = sourc.Count;
+                    // FlowDocumentPageViewer[] pg = new FlowDocumentPageViewer[k];
+                    foreach (Photochepter phch in sourc)
+                    {
+                        // System.Text.Encoding.Default;
+                        var pth = phch.PathPhChepter;
+                        ReadPdfTitle.Navigated += (sender, args) => { HideScriptErrors((WebBrowser)sender, true); };
+
+                        ReadPdfTitle.Navigate($"{pth}");
+
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Что-то пошло не так(");
                 }
             }
         }
@@ -66,15 +73,7 @@ namespace Kursovoi
 
        
        
-        private void ButtonIMGPDF_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
         private void BackButtom(object sender, RoutedEventArgs e)
         {

@@ -45,19 +45,6 @@ namespace Kursovoi
         {
             MainFrame.NavigationService.Navigate(new Uri("CatalogAdmin.xaml", UriKind.Relative));
         }
-       /* public List<Title> title = new List<Title>();
-
-        private void Search(object sender, RoutedEventArgs e)
-        {
-
-            List<Title> list = new List<Title>();
-            list = title;
-            list = list.FindAll(x => x.NameOfTitle.Contains(NameFiltr.Text));
-            if(list != null)
-            {
-
-            }    
-
-        }*/
+      
     }
 }
