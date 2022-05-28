@@ -11,7 +11,7 @@
     <Grid RenderTransformOrigin="0.705,0.638">
 
 
-        <Image  Source="D:\ЛЕНННННА\4 семестр\КУРСОВОЙ ООП\BD\Kursovoi\Kursovoi\bin\Debug\net5.0-windows\PHOTOTITLE\админ.jpg" Margin="204,65,204,145"/>
+        <Image  Source="D:\ЛЕНННННА\4 семестр\КУРСОВОЙ ООП\BD\Kursovoi\Kursovoi\bin\Debug\net5.0-windows\PHOTOTITLE\админ.jpg" Margin="246,72,246,181"/>
 
 
         <TextBlock  HorizontalAlignment="Center" Margin="0,481,0,0" Text="Admin" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" Height="42" Style="{DynamicResource TextBlockStyleTitles}" FontSize="36"/>

@@ -24,7 +24,7 @@
                     <ColumnDefinition Width="40"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Rectangle HorizontalAlignment="Center" Height="1000" VerticalAlignment="Center" Width="720" Fill="#FF252525"/>
+                <Rectangle RadiusX="20" RadiusY="20" HorizontalAlignment="Center" Height="700" VerticalAlignment="Center" Width="666" Fill="#FF252525"/>
 
                 <StackPanel Orientation="Horizontal" Margin="120 20 0 0">
                     <TextBox x:Name="nameFiltr" Height="30" Style="{StaticResource SearchTextBox}" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderBrush="White" Width="428"/>
@@ -34,14 +34,14 @@
                 </StackPanel>
 
                 <ScrollViewer Margin="0,60,0,0" VerticalScrollBarVisibility="Hidden">
-                <WrapPanel  x:Name="TitleCatalog" VerticalAlignment="Top" Margin="45,10,57,0" />
+                    <WrapPanel  x:Name="TitleCatalog" VerticalAlignment="Top" Margin="45,10,57,0" />
                 </ScrollViewer>
 
                 <Grid Grid.Column="2" Margin="0,0,0,0">
-                    <Rectangle HorizontalAlignment="Center" Height="604" VerticalAlignment="Top" Width="276" Fill="#FF252525"/>
+                    <Rectangle RadiusX="20" RadiusY="20" HorizontalAlignment="Center" Height="604" VerticalAlignment="Top" Width="276" Fill="#FF252525"/>
                     <Label Content="Жанры" Grid.Column="2" HorizontalAlignment="Left" Margin="65,20,0,0" VerticalAlignment="Top" Style="{StaticResource LabelStyle}"/>
                     <Button Content="Сбросить" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top"  Height="21"  Margin="0 25 50 0" Width="94" Style="{StaticResource Filtr}" Click="GOFilterSKIP"/>
-                    <Rectangle HorizontalAlignment="Center" Height="525" Margin="0,49,0,0" VerticalAlignment="Top" Width="232" Fill="#FFBD6CB6"/>
+                    <Rectangle RadiusX="20" RadiusY="20" HorizontalAlignment="Center" Height="525" Margin="0,49,0,0" VerticalAlignment="Top" Width="232" Fill="#FFBD6CB6"/>
                     <StackPanel Grid.Column="2" Margin="75 55 0 0" x:Name="MCSGen" RadioButton.Checked="RadioButton_Click" >
                         <RadioButton x:Name="Apocalipsis" GroupName="MCSGen" Content="Апокалипсис"  Margin="0 0 0 0" Style="{DynamicResource radio}"></RadioButton>
                         <RadioButton x:Name="Boevic" GroupName="MCSGen" Content="Боевик"  Margin="0 5 0 0" Style="{DynamicResource radio}"></RadioButton>

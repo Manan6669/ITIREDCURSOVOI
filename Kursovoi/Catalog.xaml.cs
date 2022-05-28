@@ -24,7 +24,7 @@ namespace Kursovoi
     public partial class Catalog : Page
     {
         public int n;
-        //CURSOVOIContext db;
+        
         public Catalog()
         {
             
@@ -54,8 +54,8 @@ namespace Kursovoi
                 
             };
             
-             Search ser = new Search();
-           // ser.SearchCom();
+            // Search ser = new Search();
+           
         }
        
         public  void Image_MouseLeftButtonDown(object sender, EventArgs e)
@@ -123,7 +123,7 @@ namespace Kursovoi
             {
 
                 Application.Current.Resources["RAD2"] = value;
-               // value= "TypeOfComics" + TypeOfComics.Code
+              
 
             }
         }
@@ -137,7 +137,7 @@ namespace Kursovoi
             TitleCatalog.Children.Clear();
             using (CURSOVOIContext db = new CURSOVOIContext())
             {
-                //SelectedValue = "Школа";
+                
 
                 var cucoldfiltr = db.Title.Where(p => EF.Functions.Like(p.Genre, $"%{Application.Current.Resources["RAD"]}%")).ToList();
                 n = cucoldfiltr.Count;

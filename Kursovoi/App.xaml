@@ -7,7 +7,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Style.xaml"></ResourceDictionary>
-                <ResourceDictionary Source="Slider.xaml"></ResourceDictionary>
+              <!--  <ResourceDictionary Source="Slider.xaml"></ResourceDictionary>-->
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

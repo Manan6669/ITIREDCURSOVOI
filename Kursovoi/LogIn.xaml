@@ -14,9 +14,9 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="120"/>
         </Grid.RowDefinitions>
-        <Button Content="Вход" HorizontalAlignment="Left" Margin="80,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="230" Height="30" Style="{DynamicResource buttonStyle2}" Click="ButtonOpen_Click"  />
-        <Button Content="Регистрация" HorizontalAlignment="Left" Margin="80,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="230" Height="30" Style="{DynamicResource buttonStyle2}" Click="EnterToProgrammWithRegistr"/>
-        <StackPanel  Width="231" Height="47"  Margin="80,57,89,6" Grid.Row="0" Orientation="Horizontal" Background="#FF1B1B1B">
+        <Button Content="Вход" HorizontalAlignment="Left" Margin="80,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="230" Height="30" Style="{DynamicResource buttonStyle3}" Click="ButtonOpen_Click"  />
+        <Button Content="Регистрация" HorizontalAlignment="Left" Margin="80,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="230" Height="30" Style="{DynamicResource buttonStyle3}" Click="EnterToProgrammWithRegistr"/>
+        <StackPanel  Width="231" Height="47"  Margin="80,57,89,6" Grid.Row="0" Orientation="Horizontal" Background="#FF1B1B1B" >
             <TextBlock Text="Логин :" Width="46"  HorizontalAlignment="Left" Margin="10,13,0,15" Style="{DynamicResource TextBlockImageStyle}"/>
             <TextBox x:Name="User" TextChanged="UsReg" Width="143" Height="20" Margin="20 0 0 0 " Style="{DynamicResource LogInText}" Validation.Error="TextBox_Error" BorderThickness="0,0,0,0">
                 <TextBox.Text>

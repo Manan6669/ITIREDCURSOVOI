@@ -88,10 +88,7 @@ namespace Kursovoi
 
             };
         }
-        /*  private void Visab(object sender, RoutedEventArgs e)
-          {
-
-          }*/
+        
         private void Back_Click(object sender, RoutedEventArgs e)
         {
 
@@ -102,7 +99,7 @@ namespace Kursovoi
             using (CURSOVOIContext db = new CURSOVOIContext())
             {
                 authus = db.Users.Where(b => b.UsersLoqin == LoqUs.ToString() && b.UsersPassword == PasUs.ToString()).FirstOrDefault();
-                //  var sourc = db.Users.FirstOrDefault(s => s.UsersLoqin == LoqUs.ToString() && s.UsersPassword == PasUs.ToString());
+                
                 if (authus.UsersLoqin == "Admin" && authus.UsersPassword == "admin")
                 {
                     this.NavigationService.Navigate(new Uri("CatalogAdmin.xaml", UriKind.Relative));
@@ -162,7 +159,7 @@ namespace Kursovoi
                         }
                         else
                         {
-                            MessageBox.Show("Тако тайтл у е");
+                            MessageBox.Show("Этот комикс уже есть в закладках");
                         }
                     }
                     else

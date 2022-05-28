@@ -26,7 +26,7 @@ namespace Kursovoi
     public partial class CatalogAdmin : Page
     {
         public int n;
-        //CURSOVOIContext db;
+        
         public CatalogAdmin()
         {
             InitializeComponent();
@@ -153,8 +153,6 @@ namespace Kursovoi
 
         private void GoFilterGENRE(object sender, RoutedEventArgs e)
         {
-
-
             MCSGen.AddHandler(RadioButton.CheckedEvent, new RoutedEventHandler(RadioButton_Click));
 
             TitleCatalog.Children.Clear();
@@ -162,7 +160,6 @@ namespace Kursovoi
             {
                 using (CURSOVOIContext db = new CURSOVOIContext())
                 {
-                    //SelectedValue = "Школа";
 
                     var cucoldfiltr = db.Title.Where(p => EF.Functions.Like(p.Genre, $"%{Application.Current.Resources["RAD"]}%")).ToList();
                     n = cucoldfiltr.Count;
@@ -435,9 +432,8 @@ namespace Kursovoi
         {
             NameT.Text = "";
             DateT.SelectedDate = null;
-            //RadioButton radioButton = (RadioButton)sender;
           
-                PubT.Text = "";
+            PubT.Text = "";
             AuT.Text = "";
             GenT.Text = "";
             TranT.Text = "";

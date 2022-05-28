@@ -22,13 +22,13 @@ namespace Kursovoi
     /// </summary>
     public partial class LogIn : Window
     {
-        private Regex passwordRegex = new Regex(@"^[a-z][a-zA-Z0-9]{4,20}$");
+        private Regex passwordRegex = new Regex(@"[a-zA-Z][a-zA-Z0-9]{3,20}$");
         private Regex userNameRegex = new Regex(@"^[a-zA-Z][a-zA-Z0-9-_\-\D\s.][а-яА-ЯЁёa-zA-Z0-9]{1,20}$");
         public LogIn()
         {
              InitializeComponent();
            
-            //User.ValidateControl()
+           
         }
 
         private void ButtonOpen_Click(object sender, RoutedEventArgs e)

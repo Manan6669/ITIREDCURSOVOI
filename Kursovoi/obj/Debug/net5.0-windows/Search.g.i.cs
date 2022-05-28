@@ -61,7 +61,7 @@ namespace Kursovoi {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Kursovoi;component/search.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Kursovoi;V1.0.0.0;component/search.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Search.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

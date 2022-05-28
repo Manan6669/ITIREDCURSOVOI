@@ -45,7 +45,7 @@ namespace Kursovoi
 
                     var sourc = db.Photochepter.Where(p => p.CodeTitle == int.Parse(shortcode)).ToList();
                     var k = sourc.Count;
-                    // FlowDocumentPageViewer[] pg = new FlowDocumentPageViewer[k];
+                   
                     foreach (Photochepter phch in sourc)
                     {
                         // System.Text.Encoding.Default;
@@ -78,7 +78,7 @@ namespace Kursovoi
         private void BackButtom(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("ShabTitle.xaml", UriKind.Relative));
-            //Application.Current.Resources["TT"] = shortcode;
+           
         }
     }
 }
