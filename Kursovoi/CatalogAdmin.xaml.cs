@@ -45,7 +45,8 @@ namespace Kursovoi
                         Name = "Title" + u.CodeTitle,
                         Height = 164,
                         Width = 120,
-                        Margin = new Thickness(30, 20, 0, 0)
+                        Margin = new Thickness(30, 20, 0, 0),
+                        Cursor = Cursors.Hand
                     };
                     btn.Click += Image_MouseLeftButtonDown;
                     TitleCatalog.Children.Add(btn);
@@ -133,7 +134,8 @@ namespace Kursovoi
                                 Name = "Title" + u.CodeTitle,
                                 Height = 164,
                                 Width = 120,
-                                Margin = new Thickness(30, 20, 0, 0)
+                                Margin = new Thickness(30, 20, 0, 0),
+                                Cursor = Cursors.Hand
                             };
 
                             TitleCatalog.Children.Add(btnsearch);
@@ -174,7 +176,8 @@ namespace Kursovoi
                             Name = "Title" + u.CodeTitle,
                             Height = 164,
                             Width = 120,
-                            Margin = new Thickness(30, 20, 0, 0)
+                            Margin = new Thickness(30, 20, 0, 0),
+                            Cursor = Cursors.Hand
                         };
                         TitleCatalog.Children.Add(btn);
                         btn.Click += Image_MouseLeftButtonDown;
@@ -207,7 +210,8 @@ namespace Kursovoi
                             Name = "Title" + u.CodeTitle,
                             Height = 164,
                             Width = 120,
-                            Margin = new Thickness(30, 20, 0, 0)
+                            Margin = new Thickness(30, 20, 0, 0),
+                            Cursor = Cursors.Hand
                         };
                         btn.Click += Image_MouseLeftButtonDown;
                         TitleCatalog.Children.Add(btn);
@@ -287,7 +291,7 @@ namespace Kursovoi
                     file = PathImT.Text;
 
                     var nn = db.Title.Where(n => n.NameOfTitle == NameTit).ToList();
-                    if ((NameT.Text == null && _filepath == null && DateT.SelectedDate == null && PubT.Text != null && AuT.Text != null && GenT != null && TranT.Text != null && LinkSite.Text != null && LinkChep.Text != null && DesT.Text != null))
+                    if ((NameT.Text != null && _filepath != null && DateT.SelectedDate != null && PubT.Text != null && AuT.Text != null && GenT != null && TranT.Text != null && LinkSite.Text != null && LinkChep.Text != null && DesT.Text != null))
                     {
                         if (nn != null)
                         {
@@ -355,6 +359,19 @@ namespace Kursovoi
                                     db.Photochepter.Add(phchep);
                                     db.SaveChanges();
                                     MessageBox.Show("Комикс успешно добавлен");
+
+                                    NameT.Text = "";
+                                    DateT.SelectedDate = null;
+                                    
+                                    PubT.Text = "";
+                                    AuT.Text = "";
+                                    GenT.Text = "";
+                                    TranT.Text = "";
+                                    LinkSite.Text = "";
+                                    LinkChep.Text = "";
+
+                                    DesT.Text = "";
+                                    _filepath = "";
                                 }
                                 else
                                 {
@@ -443,6 +460,8 @@ namespace Kursovoi
             DesT.Text = "";
             _filepath = "";
 
+            
+           
         }
     }
 }

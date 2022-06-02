@@ -19,6 +19,11 @@
         <StackPanel  Width="231" Height="47"  Margin="80,57,89,6" Grid.Row="0" Orientation="Horizontal" Background="#FF1B1B1B" >
             <TextBlock Text="Логин :" Width="46"  HorizontalAlignment="Left" Margin="10,13,0,15" Style="{DynamicResource TextBlockImageStyle}"/>
             <TextBox x:Name="User" TextChanged="UsReg" Width="143" Height="20" Margin="20 0 0 0 " Style="{DynamicResource LogInText}" Validation.Error="TextBox_Error" BorderThickness="0,0,0,0">
+                <TextBox.ToolTip>
+                    <ToolTip Background="Black" Foreground="White" HasDropShadow="False" Placement="Right" HorizontalOffset="15" VerticalOffset="0">
+                        <TextBlock>Логин должен состоять из латиницы и начинаться с заглавной буквы, может содержать _, - и цифры</TextBlock>
+                    </ToolTip>
+                </TextBox.ToolTip>
                 <TextBox.Text>
                     <Binding Path="UsersLoqin" NotifyOnValidationError="True">
                         <Binding.ValidationRules>

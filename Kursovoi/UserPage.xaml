@@ -23,9 +23,9 @@
 
 
         <TextBlock x:Name="UserLoqin" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left" Margin="42,62,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="42" Style="{DynamicResource TextBlockStyleTitles}" Grid.RowSpan="2"/>
-        <Rectangle Grid.Row="1" RadiusX="20" RadiusY="20" Fill="#FF252525" Margin="0,0,90,30" Width="540" Height="419" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="2" />
-        <ScrollViewer Margin="33,51,91,30" Grid.Row="1" Grid.Column="2" VerticalScrollBarVisibility="Hidden"  >
-            <WrapPanel Grid.Row="1" Grid.Column="2" Width="540" x:Name="BookmarkCatalog" Grid.ColumnSpan="3" Grid.RowSpan="2" Height="417"/>
+        <Rectangle Grid.Row="1" RadiusX="20" RadiusY="20" Fill="#FF252525" Margin="34,36,90,30" Grid.Column="2" />
+        <ScrollViewer Margin="0,60,10,50" Grid.Row="1" Grid.Column="2" VerticalScrollBarVisibility="Hidden">
+            <WrapPanel Margin="40,00,90,30"  Grid.Row="1" Grid.Column="2" Width="533" x:Name="BookmarkCatalog" Grid.ColumnSpan="3" Grid.RowSpan="2" />
         </ScrollViewer>
         <Button x:Name="AddPhotoUser" Content="Загрузить фото аккаунта" HorizontalAlignment="Left" Margin="387,67,0,0" Grid.Column="2" Width="186" Style="{DynamicResource buttonStyle2}" Click="AddPhotoUser_Click" Grid.RowSpan="2" Cursor="Hand" Height="37" VerticalAlignment="Top"/>
 

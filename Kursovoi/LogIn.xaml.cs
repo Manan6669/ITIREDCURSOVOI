@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 
+
 namespace Kursovoi
 {
     /// <summary>
@@ -23,7 +24,7 @@ namespace Kursovoi
     public partial class LogIn : Window
     {
         private Regex passwordRegex = new Regex(@"[a-zA-Z][a-zA-Z0-9]{3,20}$");
-        private Regex userNameRegex = new Regex(@"^[a-zA-Z][a-zA-Z0-9-_\-\D\s.][а-яА-ЯЁёa-zA-Z0-9]{1,20}$");
+        private Regex userNameRegex = new Regex(@"^[A-Z][а-яА-ЯЁёa-zA-Z0-9-_\-*]{1,20}$");
         public LogIn()
         {
              InitializeComponent();

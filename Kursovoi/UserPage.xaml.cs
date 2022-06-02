@@ -29,108 +29,125 @@ namespace Kursovoi
         public UserPage()
         {
             InitializeComponent();
-            
-            using (CURSOVOIContext db = new CURSOVOIContext())
+            try
             {
-                var LoqUs = Application.Current.Resources["EntUser"];
-                var PasUs = Application.Current.Resources["EntPassw"];
-                var CodUs = Application.Current.Resources["CodeUser"];
-
-                var sourc = db.Users.FirstOrDefault(s => s.UsersLoqin == LoqUs.ToString() && s.UsersPassword == PasUs.ToString());
-                var Cod = sourc.UnicCodeUsers;
-                UserLoqin.Text = LoqUs.ToString();
-
-                var sourcBook = db.Bookmarks.Where(b => b.UnicCodeUsers == Cod).ToList();
-                k = sourcBook.Count;
-                Button[] btns = new Button[k];
-              
-                foreach (Bookmarks book in sourcBook)
+                using (CURSOVOIContext db = new CURSOVOIContext())
                 {
-                    var titcode = book.CodeTitle;
-                   
-                    var sourcTitle = db.Title.FirstOrDefault(t => t.CodeTitle == titcode);
-                    var st = sourcTitle.CodeTitle;
-                    var picst = sourcTitle.Photo;
+                    var LoqUs = Application.Current.Resources["EntUser"];
+                    var PasUs = Application.Current.Resources["EntPassw"];
+                    var CodUs = Application.Current.Resources["CodeUser"];
 
-                    string imgtitcodepath = Environment.CurrentDirectory + "/PHOTOTITLE/" + $"{picst}";
-                   
-                    var stakk = new StackPanel { 
-                    Name = "Stack" + st,
-                    Orientation = Orientation.Vertical,
-                      Height = 200,
-                        Width = 120,
-                        Margin = new Thickness(10, 5, 0, 0)};
+                    var sourc = db.Users.FirstOrDefault(s => s.UsersLoqin == LoqUs.ToString() && s.UsersPassword == PasUs.ToString());
+                    var Cod = sourc.UnicCodeUsers;
+                    UserLoqin.Text = LoqUs.ToString();
 
-                    var btndel = new Button
+                    var sourcBook = db.Bookmarks.Where(b => b.UnicCodeUsers == Cod).ToList();
+                    k = sourcBook.Count;
+                    Button[] btns = new Button[k];
+
+                    foreach (Bookmarks book in sourcBook)
                     {
-                        Name = "DelTit" + st,
-                        Background = new ImageBrush { ImageSource = new BitmapImage(new Uri("D:/ЛЕНННННА/4 семестр/Kursovoi/Kursovoi/bin/Debug/net5.0-windows/PHOTOTITLE/Del.png")) },
-                        Height = 10,
-                        Width = 10,
-                        VerticalAlignment = VerticalAlignment.Top,
-                        HorizontalAlignment = HorizontalAlignment.Right,
-                        Margin = new Thickness(0, 0, 0, 0),
-                        BorderThickness = new Thickness(0, 0, 0, 0)
-                    };
-                    var btnbook = new Button
+                        var titcode = book.CodeTitle;
+
+                        var sourcTitle = db.Title.FirstOrDefault(t => t.CodeTitle == titcode);
+                        var st = sourcTitle.CodeTitle;
+                        var picst = sourcTitle.Photo;
+
+                        string imgtitcodepath = Environment.CurrentDirectory + "/PHOTOTITLE/" + $"{picst}";
+
+                        var stakk = new StackPanel
+                        {
+                            Name = "Stack" + st,
+                            Orientation = Orientation.Vertical,
+                            Height = 200,
+                            Width = 120,
+                            Margin = new Thickness(10, 5, 0, 0)
+                        };
+
+                        var btndel = new Button
+                        {
+                            Name = "DelTit" + st,
+                            Background = new ImageBrush { ImageSource = new BitmapImage(new Uri("D:/ЛЕНННННА/4 семестр/Kursovoi/Kursovoi/bin/Debug/net5.0-windows/PHOTOTITLE/Del.png")) },
+                            Height = 10,
+                            Width = 10,
+                            VerticalAlignment = VerticalAlignment.Top,
+                            HorizontalAlignment = HorizontalAlignment.Right,
+                            Margin = new Thickness(0, 0, 0, 0),
+                            BorderThickness = new Thickness(0, 0, 0, 0),
+                            Cursor = Cursors.Hand
+
+                        };
+                        var btnbook = new Button
+                        {
+                            Background = new ImageBrush { ImageSource = new BitmapImage(new Uri(imgtitcodepath)) },
+                            Name = "Title" + st
+                            ,
+                            VerticalAlignment = VerticalAlignment.Bottom,
+                            Height = 164,
+                            Width = 120,
+                            Margin = new Thickness(0, 5, 0, 0)
+
+                        };
+                        btnbook.Click += GoBookmark;
+
+                        stakk.Children.Add(btndel);
+                        stakk.Children.Add(btnbook);
+                        btndel.Click += DeleteBookmark;
+                        BookmarkCatalog.Children.Add(stakk);
+
+                    }
+
+
+                    if (sourc.PhotoUsers == null)
                     {
-                        Background = new ImageBrush { ImageSource = new BitmapImage(new Uri(imgtitcodepath)) },
-                        Name = "Title" + st 
-                        ,
-                        VerticalAlignment= VerticalAlignment.Bottom,
-                        Height = 164,
-                        Width = 120,
-                        Margin = new Thickness(0, 5, 0, 0)
+                        UserImg.Source = new BitmapImage(new Uri("D:/ЛЕНННННА/4 семестр/КУРСОВОЙ ООП/BD/Kursovoi/Kursovoi/bin/Debug/net5.0-windows/PHOTOTITLE/All.jpg"));
+                    }
+                    else
+                    {
 
-                    };
-                    btnbook.Click += GoBookmark; 
-                  
-                    stakk.Children.Add(btndel);
-                    stakk.Children.Add(btnbook);
-                    btndel.Click += DeleteBookmark;
-                    BookmarkCatalog.Children.Add(stakk);
+                        Binding binding = new Binding();
+                        binding.Source = sourc.PhotoUsers;
+                        UserImg.SetBinding(Image.SourceProperty, binding);
+
+                    }
 
                 }
-
-               
-                if (sourc.PhotoUsers == null)
-                {
-                    UserImg.Source = new BitmapImage(new Uri("D:/ЛЕНННННА/4 семестр/КУРСОВОЙ ООП/BD/Kursovoi/Kursovoi/bin/Debug/net5.0-windows/PHOTOTITLE/All.jpg"));
-                }
-                else
-                {
-                    
-                    Binding binding = new Binding();
-                    binding.Source = sourc.PhotoUsers;
-                    UserImg.SetBinding(Image.SourceProperty, binding);
-                    
-                }
-
+            }
+            catch
+            {
+                MessageBox.Show("Упс, что-то пошло не так");
             }
         }
 
         public void DeleteBookmark(object sender, RoutedEventArgs e)
         {
-            var LoqUs = Application.Current.Resources["EntUser"];
-            var PasUs = Application.Current.Resources["EntPassw"];
-            var CodUs = Application.Current.Resources["CodeUser"];
+            var LoqUs = Application.Current.Resources["AdminEntUser"];
+            var PasUs = Application.Current.Resources["AdminPassw"];
+
             var buttonNameBookmarkDel = (sender as Button).Name;
             string shortcodeBook = buttonNameBookmarkDel.ToString();
             shortcodeBook = shortcodeBook.Remove(0, 6);
 
-                using (CURSOVOIContext db = new CURSOVOIContext())
-                {
+            
+
+            using (CURSOVOIContext db = new CURSOVOIContext())
+            {
+                var sourc = db.Users.FirstOrDefault(s => s.UsersLoqin == LoqUs.ToString() && s.UsersPassword == PasUs.ToString());
+                var Cod = sourc.UnicCodeUsers;
+                var sas = db.Bookmarks.Where(p => p.UnicCodeUsers == Cod).FirstOrDefault();
                    try
                    {
-                        var sourcbook = db.Bookmarks.FirstOrDefault(s => s.CodeTitle == int.Parse(shortcodeBook));
-                        var sb = sourcbook.CodeTitle;
-                        db.Bookmarks.Remove(sourcbook);
-                        db.SaveChanges();                       
-                        MessageBox.Show("Закладка удалена!");
+                    var sourcbook = db.Bookmarks.FirstOrDefault(s => s.CodeTitle == int.Parse(shortcodeBook) && sourc.UnicCodeUsers == sas.UnicCodeUsers);
+                    var sb = sourcbook.CodeTitle;
+                    db.Bookmarks.Remove(sourcbook);
+                    db.SaveChanges();
+                    MessageBox.Show("Закладка удалена!");
 
-                        BookmarkCatalog.Children.Clear();
-                        var sourc = db.Users.FirstOrDefault(s => s.UsersLoqin == LoqUs.ToString() && s.UsersPassword == PasUs.ToString());
-                        var Cod = sourc.UnicCodeUsers;
+
+
+
+                    BookmarkCatalog.Children.Clear();
+                        
                         UserLoqin.Text = LoqUs.ToString();
 
                         var sourcBook = db.Bookmarks.Where(b => b.UnicCodeUsers == Cod).ToList();
@@ -151,7 +168,8 @@ namespace Kursovoi
                                 Orientation = Orientation.Vertical,
                                 Height = 200,
                                 Width = 120,
-                                Margin = new Thickness(10, 5, 0, 0)
+                                Margin = new Thickness(10, 5, 0, 0),
+                                Cursor = Cursors.Hand
                             };
 
                             var btndel = new Button
@@ -163,7 +181,8 @@ namespace Kursovoi
                                 VerticalAlignment = VerticalAlignment.Top,
                                 HorizontalAlignment = HorizontalAlignment.Right,
                                 Margin = new Thickness(0, 0, 0, 0),
-                                BorderThickness = new Thickness(0, 0, 0, 0)
+                                BorderThickness = new Thickness(0, 0, 0, 0),
+                                Cursor = Cursors.Hand
                             };
                             var btnbook = new Button
                             {
@@ -172,7 +191,8 @@ namespace Kursovoi
                                 VerticalAlignment = VerticalAlignment.Bottom,
                                 Height = 164,
                                 Width = 120,
-                                Margin = new Thickness(0, 5, 0, 0)
+                                Margin = new Thickness(0, 5, 0, 0),
+                                Cursor = Cursors.Hand
 
                             };
                             btnbook.Click += GoBookmark;

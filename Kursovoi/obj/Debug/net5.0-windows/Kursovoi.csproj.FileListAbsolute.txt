@@ -80,3 +80,4 @@ D:\ЛЕНННННА\4 семестр\Kursovoi\Kursovoi\obj\Debug\net5.0-windows\
 D:\ЛЕНННННА\4 семестр\Kursovoi\Kursovoi\obj\Debug\net5.0-windows\UserPageAdmin.baml
 D:\ЛЕНННННА\4 семестр\Kursovoi\Kursovoi\obj\Debug\net5.0-windows\WindowMain.baml
 D:\ЛЕНННННА\4 семестр\Kursovoi\Kursovoi\obj\Debug\net5.0-windows\WindowMainAdmin.baml
+D:\ЛЕНННННА\4 семестр\Kursovoi\Kursovoi\obj\Debug\net5.0-windows\Kursovoi_Content.g.cs

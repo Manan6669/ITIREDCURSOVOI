@@ -37,16 +37,20 @@ namespace Kursovoi
                 foreach (Title u in pic)
                 {
                     string path = Environment.CurrentDirectory + "/PHOTOTITLE/" + $"{u.Photo}";
+                    
                     var btn = new Button
-                    {
+                    {   
                         Background = new ImageBrush
                         { ImageSource = new BitmapImage(new Uri(path)) },
                         Name = "Title" + u.CodeTitle,
                         Height = 164,
                         Width = 120,
-                        Margin = new Thickness(30, 20, 0, 5)
-                    };
+                        Margin = new Thickness(30, 20, 0, 5),
+                        Cursor = Cursors.Hand
+                        
+                };
                     btn.Click += Image_MouseLeftButtonDown;
+                    
                     TitleCatalog.Children.Add(btn);
                 }
                 Application.Current.Resources["ForSearch"] = pic;
@@ -90,7 +94,8 @@ namespace Kursovoi
                         Name = "Title" + u.CodeTitle,
                         Height = 164,
                         Width = 120,
-                        Margin = new Thickness(30, 20, 0, 0)
+                        Margin = new Thickness(30, 20, 0, 0),
+                        Cursor = Cursors.Hand
                     };
 
                     TitleCatalog.Children.Add(btnsearch);
@@ -152,7 +157,8 @@ namespace Kursovoi
                         Name = "Title" + u.CodeTitle,
                         Height = 164,
                         Width = 120,
-                        Margin = new Thickness(30, 20, 0, 0)
+                        Margin = new Thickness(30, 20, 0, 0),
+                        Cursor = Cursors.Hand
                     };
                     TitleCatalog.Children.Add(btn);
                     btn.Click += Image_MouseLeftButtonDown;
@@ -178,7 +184,8 @@ namespace Kursovoi
                         Name = "Title" + u.CodeTitle,
                         Height = 164,
                         Width = 120,
-                        Margin = new Thickness(30, 20, 0, 0)
+                        Margin = new Thickness(30, 20, 0, 0),
+                        Cursor = Cursors.Hand
                     };
                     btn.Click += Image_MouseLeftButtonDown;
                     TitleCatalog.Children.Add(btn);

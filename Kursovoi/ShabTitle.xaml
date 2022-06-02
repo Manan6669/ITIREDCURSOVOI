@@ -52,7 +52,7 @@
 
             <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="49,565,0,0" Text="Переводчик" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" Style="{StaticResource TextBlockImageStyle2}"/>
             <TextBlock Grid.Column="1" Margin="49,595,289,56" x:Name="translator" Style="{StaticResource TextBlockStyle}"></TextBlock>
-            <Button HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="20"  Height="28" Click="Back_Click"  Style="{StaticResource TriggerBut}">
+            <Button HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="20"  Height="28" Click="Back_Click"  Style="{StaticResource TriggerBut}" Foreground="{x:Null}" BorderThickness="0,0,0,0" Cursor="Hand" IsTabStop="False" >
                 <StackPanel Orientation="Horizontal" Background="{x:Null}">
                     <TextBlock Background="{x:Null}" Text="&#xE72B;" Style="{StaticResource buttonIcon}"/>
                 </StackPanel>

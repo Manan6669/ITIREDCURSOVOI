@@ -28,7 +28,7 @@
 
                 <StackPanel Orientation="Horizontal" Margin="120 20 0 0">
                     <TextBox x:Name="nameFiltr" Height="30" Style="{StaticResource SearchTextBox}" TextWrapping="Wrap" Text="" VerticalAlignment="Top" BorderBrush="White" Width="428"/>
-                    <Button Height="30" Width="40" Background="#FF060606" BorderBrush="#FFBD6CB6" Click="SearchCom" VerticalAlignment="Top" >
+                    <Button Height="30" Width="40" Background="#FF060606" BorderBrush="#FF060606" Click="SearchCom" VerticalAlignment="Top" Cursor="Hand" Style="{DynamicResource ForSearchBut}">
                         <TextBlock Margin="2 0 0 0" Text="&#xE71E;" Style="{DynamicResource buttonIcon}"></TextBlock>
                     </Button>
                 </StackPanel>
@@ -55,7 +55,7 @@
                         <RadioButton x:Name="Magic" GroupName="MCSGen" Content="Магия"  Margin="0 5 0 0" Style="{DynamicResource radio}"></RadioButton>
                         <RadioButton x:Name="Mafia" GroupName="MCSGen" Content="Мафия"  Margin="0 5 0 0" Style="{DynamicResource radio}"></RadioButton>
                         <RadioButton x:Name="Povsed" GroupName="MCSGen" Content="Повседневность"  Margin="0 5 0 0" Style="{DynamicResource radio}"></RadioButton>
-                        <RadioButton x:Name="Postapock" GroupName="MCSGen" Content="Поставпокалипсис"  Margin="0 5 0 0" Style="{DynamicResource radio}"></RadioButton>
+                        <RadioButton x:Name="Postapock" GroupName="MCSGen" Content="Постапокалипсис"  Margin="0 5 0 0" Style="{DynamicResource radio}"></RadioButton>
                         <RadioButton x:Name="Prikl" GroupName="MCSGen" Content="Приключения"  Margin="0 5 0 0" Style="{DynamicResource radio}"></RadioButton>
                         <RadioButton x:Name="Psih" GroupName="MCSGen" Content="Психология"  Margin="0 5 0 0" Style="{DynamicResource radio}"></RadioButton>
                         <RadioButton x:Name="Reinkarn" GroupName="MCSGen" Content="Реинкарнация"  Margin="0 5 0 0" Style="{DynamicResource radio}"></RadioButton>

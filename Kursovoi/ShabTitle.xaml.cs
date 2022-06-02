@@ -76,6 +76,9 @@ namespace Kursovoi
 
                 var LoqUsAd = Application.Current.Resources["AdminEntUser"];
                 var PasUsAd = Application.Current.Resources["AdminPassw"];
+                var LoqUs = Application.Current.Resources["EntUser"];
+                var PasUs = Application.Current.Resources["EntPassw"];
+
                 if (LoqUsAd.ToString() != "Admin" && PasUsAd.ToString() != "admin")
                 {
                     DelBut.Visibility = Visibility.Hidden;
@@ -83,12 +86,33 @@ namespace Kursovoi
                 else
                 {
                     DelBut.Visibility = Visibility.Visible;
+
+                    AddToBookMark.Content = "Невозможно добавить в закладки";
+                    AddToBookMark.IsEnabled = false;
                 }
 
 
+
+                var bok = db.Bookmarks.ToList();
+                var n = bok.Count;
+
+
+                Users user = db.Users.FirstOrDefault(p => p.UsersLoqin == LoqUsAd.ToString() && p.UsersPassword == PasUsAd.ToString());
+                var Cod = user.UnicCodeUsers;
+                var sourcBook = db.Bookmarks.Where(b => b.UnicCodeUsers == Cod).ToList();
+                var k = sourcBook.Count;
+                foreach (Bookmarks book in sourcBook)
+                { if (book.CodeTitle == int.Parse(shortcode))
+                    {
+                        AddToBookMark.Content = "Комикс добавлен в закладки";
+
+                        AddToBookMark.IsEnabled = false;
+                    }
+
+                }
             };
         }
-        
+
         private void Back_Click(object sender, RoutedEventArgs e)
         {
 
@@ -99,7 +123,7 @@ namespace Kursovoi
             using (CURSOVOIContext db = new CURSOVOIContext())
             {
                 authus = db.Users.Where(b => b.UsersLoqin == LoqUs.ToString() && b.UsersPassword == PasUs.ToString()).FirstOrDefault();
-                
+
                 if (authus.UsersLoqin == "Admin" && authus.UsersPassword == "admin")
                 {
                     this.NavigationService.Navigate(new Uri("CatalogAdmin.xaml", UriKind.Relative));
@@ -123,51 +147,56 @@ namespace Kursovoi
 
 
         private void AddToBookM_Click(object sender, RoutedEventArgs e)
-        {           
-                using (CURSOVOIContext db = new CURSOVOIContext())
+        {
+            using (CURSOVOIContext db = new CURSOVOIContext())
+            {
+                int k = 0;
+                var LoqUs = Application.Current.Resources["EntUser"];
+                var PasUs = Application.Current.Resources["EntPassw"];
+                var CodUs = Application.Current.Resources["CodeUser"];
+                var code = Application.Current.Resources["TT"];
+                string codd = CodUs.ToString();
+                int CodeBook = db.Bookmarks.Max(b => b.CodeBookmarks);
+                string shortcode = code.ToString();
+                shortcode = shortcode.Remove(0, 5);
+                var sas = db.Bookmarks.Where(p => p.UnicCodeUsers == int.Parse(codd)).ToList();
+                if (sas != null && AddToBookMark.Content.ToString() != "Комикс добавлен в закладки")
                 {
-                    int k = 0;
-                    var LoqUs = Application.Current.Resources["EntUser"];
-                    var PasUs = Application.Current.Resources["EntPassw"];
-                    var CodUs = Application.Current.Resources["CodeUser"];
-                    var code = Application.Current.Resources["TT"];
-                    string codd = CodUs.ToString();
-                    int CodeBook = db.Bookmarks.Max(b => b.CodeBookmarks);
-                    string shortcode = code.ToString();
-                    shortcode = shortcode.Remove(0, 5);
-                    var sas = db.Bookmarks.Where(p => p.UnicCodeUsers == int.Parse(codd)).ToList();
-                    if (sas != null)
+                    foreach (var item in sas)
                     {
-                        foreach (var item in sas)
+                        if (item.CodeTitle == int.Parse(shortcode))
                         {
-                            if (item.CodeTitle == int.Parse(shortcode))
-                            {
-                                k++;
-                            }
+                            k++;
                         }
-                        if (k == 0)
+                    }
+                    if (k == 0)
+                    {
+                        Bookmarks book = new Bookmarks
                         {
-                            Bookmarks book = new Bookmarks
-                            {
-                                CodeBookmarks = CodeBook + 1,
-                                UnicCodeUsers = (int)CodUs,
-                                CodeTitle = int.Parse(shortcode),
+                            CodeBookmarks = CodeBook + 1,
+                            UnicCodeUsers = (int)CodUs,
+                            CodeTitle = int.Parse(shortcode),
 
-                            };
-                            db.Bookmarks.Add(book);
-                            db.SaveChanges();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Этот комикс уже есть в закладках");
-                        }
+                        };
+                        db.Bookmarks.Add(book);
+                        db.SaveChanges();
+                        AddToBookMark.IsEnabled = false;
+                        AddToBookMark.Content = "Комикс добавлен в закладки";
                     }
-                    else
-                    {
-                        MessageBox.Show("Ошибка добавления");
-                    }
-                }           
+                }
+                else
+                {
+                    MessageBox.Show("Ошибка добавления");
+                }
+
+                
+
+
+            }
         }
+    
+    
+
        
 
         private void ReadPdfTit(object sender, RoutedEventArgs e)
